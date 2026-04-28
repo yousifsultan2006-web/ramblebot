@@ -36,15 +36,16 @@ public class LowercaseSentenceTokenizer implements Tokenizer {
     String[] wordsInLine;
     ArrayList<String> wordList = new ArrayList<String>();
     while (scanner.hasNextLine()) {
-      data = scanner.nextLine();
-      wordsInLine = data.split(" ");
+      data = scanner.nextLine().toLowerCase();
+      wordsInLine = data.split("\\s+");
+      
       wordList.addAll(Arrays.asList(wordsInLine));
       
 
     }
     
 
-    return null;
+    return wordList;
   }
 }
 
