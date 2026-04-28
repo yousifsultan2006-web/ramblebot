@@ -43,10 +43,10 @@ public class LowercaseSentenceTokenizer implements Tokenizer {
         
         for (int i = 0; i < word.length()-1; i++) {
           char c = word.charAt(i)
-          if (c == '.' && i > 0 && i < word.length()-1) {
+          if (c == '.' && i > 0 && i < word.length()-1  && Character.isLetter(word.charAt(i+1)) && Character.isLetter((i-1))) {
             sb.append(c);
-
-
+          } else {
+            
           }
 
         }
