@@ -40,25 +40,24 @@ public class LowercaseSentenceTokenizer implements Tokenizer {
       data = scanner.nextLine().toLowerCase();
       wordsInLine = data.split("\\s+");
       for (String word : wordsInLine) {
-        
-        for (int i = 0; i < word.length()-1; i++) {
-          char c = word.charAt(i)
-          if (c == '.' && i > 0 && i < word.length()-1  && Character.isLetter(word.charAt(i+1)) && Character.isLetter((i-1))) {
-            sb.append(c);
-          } else {
-            
-          }
-
+        if (word.endsWith(".") && word.length() > 1) {
+          wordList.add(word.substring(0, word.length()-1));
+          wordList.add(".");
+        } else {
+          wordList.add(word);
         }
+          }
+       }
+       return wordList;
       }
       
-      wordList.addAll(Arrays.asList(wordsInLine));
+      
       
 
     }
     
 
-    return wordList;
-  }
-}
+    
+  
+
 
